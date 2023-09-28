@@ -1,10 +1,9 @@
-# Основы Python, Задача 2
-a = int(input())
-b = int(input())
+# Основы Python, Задача 1
+data = input()
+data = [int(i) for i in data.split()]
 
-if a < b:
-    print('Произвольное число меньше пограничного')
-elif a > 3 * b:
-    print('Произвольное число больше пограничного более, чем в 3 раза')
-elif a > b:
-    print('Произвольное число больше пограничного')
+i = 0
+while data[i] != 237:
+    if data[i] % 2 == 0:
+        print(data[i])
+    i += 1
