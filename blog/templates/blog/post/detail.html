@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<h1>{{ post.title }}</h1>
+<div class="posts">
+    <p class="date">
+        Published {{ post.publish }} by {{ post.author }}
+    </p>
+        Created: {{ post.created|date:"N j Y" }},
+        last updated: {{ post.updated|timesince }}
+    <p>
+        Tag: {{ post.tag }}
+    </p>
+    {% if post.image %}
+      <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}" width="20%" height="auto">
+    {% endif %}
+    {{ post.body|linebreaks }}
+</div>
+
+<div>
+    <a href="{% url 'blog:post_update' post.slug%}">Update the post</a>
+</div>
+{% endblock %}

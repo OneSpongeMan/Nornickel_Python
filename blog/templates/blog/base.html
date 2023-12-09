@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "blog/css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="content">
+{% block content %}
+        {% if request.user.is_authenticated %}
+        <div class="navbar-nav ml-auto">
+          <a href="{% url 'blog:post_create' %}"
+            class="nav-item nav-link {% if request.path == 'main/create/' %}active{% endif %}">
+            Create a post
+          </a>
+        </div>
+        {% endif %}
+{% endblock %}
+</div>
+<div id="sidebar">
+    <h2>My blog</h2>
+    <p>This is my blog.</p>
+</div>
+</body>
+</html>

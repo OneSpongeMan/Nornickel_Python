@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% block title %}My Tags{% endblock %}
+{% block content %}
+  <h1>Tags list</h1>
+  <div class="posts">
+    {% for tag in tags %}
+      <a href="{% url 'blog:posts_by_tag' tag %}">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
+  <div>
+      <a href="{% url 'blog:post_list' %}">Return to the post list</a>
+  </div>
+{% include "blog/pagination.html" with page=page_obj %}
+{% endblock %}
