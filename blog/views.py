@@ -81,6 +81,3 @@ class PostUpdateView(UpdateView):
     def get_success_url(self):
         messages.success(self.request, 'Your post has been updated successfully.')
         return _('blog:post_list')
-
-    # def get_queryset(self):
-    #     return self.model.objects.filter(author=self.request.user)
